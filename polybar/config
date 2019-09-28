@@ -1,0 +1,630 @@
+;==========================================================
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;			https://github.com/polybar/polybar
+;==========================================================
+
+[colors]
+background = ${xrdb:color0:#222}
+background-alt = ${xrdb:color0:#222}
+
+foreground = ${xrdb:color0:#222}
+foreground-alt = ${xrdb:color5:#222}
+ 
+shade0 = ${xrdb:color0:#222}
+shade1 = ${xrdb:color1:#222}
+shade2 = ${xrdb:color2:#222}
+shade3 = ${xrdb:color3:#222}
+shade4 = ${xrdb:color4:#222}
+shade5 = ${xrdb:color5:#222}
+shade6 = ${xrdb:color6:#222}
+shade7 = ${xrdb:color7:#222}
+shade8 = ${xrdb:color8:#222}
+
+
+[bar/top]
+monitor = eDP-1-1
+width = 100%
+height = 35
+offset-x = 0
+offset-y = 0 
+fixed-center = true
+tray-position = none
+override-redirect = false
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+cursor-click = pointer
+cursor-scroll = ns-resize
+radius = 0
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-size = 0
+line-color = #f00
+border-bottom-size = 3
+border-color = #2f2f2f20
+border-transparent = true
+padding-left = 2
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Roboto Condensed:weight=bold:fontformat=truetype:size=16:antialias=true;4
+
+font-1 = Space Mono:fontformat=truetype:weight=regular:size=12:antialias=true;3
+
+font-2 = 3270SemiNarrow Nerd Font:fontformat=truetype:size=18:antialias=true;3
+
+font-3 = 3270SemiNarrow Nerd Font:fontformat=truetype:size=30:antialias=true;5
+
+font-4 = Space Mono:fontformat=truetype:weight=bold:size=13:antialias=true;4
+
+
+separator =
+modules-left = drivelauncher xwindow
+modules-center =  i3
+modules-right =  pulseaudio wlan battery date
+
+[bar/top-ext]
+inherit = bar/top
+monitor = DP-1-1
+
+
+[bar/bottom]
+inherit = bar/top
+bottom = true
+background = ${colors.foreground}
+foreground = ${colors.background}
+module-margin-left = 2
+module-margin-right = 2
+padding-left = 1
+padding-right = 2
+
+
+modules-left = takeabreak
+modules-center = cpu memory gpu temperature filesystem
+modules-right =  spotify previous playpause next powermenu
+enable-ipc = true
+
+border-bottom-size = 0
+border-top-size = 3
+
+[bar/bottom-ext]
+inherit = bar/bottom
+monitor = DP-1-1      
+
+modules-left = takeabreak
+modules-center = cpu memory gpu temperature filesystem
+modules-right =  spotify previous playpause next powermenu
+enable-ipc = true
+
+
+
+;   (_)__ / __ __ ___ __  
+;   | ||_ \ \ V  V / '  \ 
+;   |_|___/  \_/\_/|_|_|_|
+;                         
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode> 
+index-sort = true
+wrapping-scroll = false
+pin-workspaces = false
+
+;strip-wsnumbers = true
+ws-icon-0 = 1;%{T5}1%{T-} 
+ws-icon-1 = 2;%{T5}2%{T-} 
+ws-icon-2 = 3;%{T5}3%{T-} 爵
+ws-icon-3 = 4;%{T5}4%{T-} 
+ws-icon-4 = 5;%{T5}5%{T-} 
+ws-icon-5 = 6;%{T5}6%{T-} 
+ws-icon-6 = 7;%{T5}7%{T-} 
+ws-icon-7 = 8; 
+ws-icon-8 = 9;
+ws-icon-9 = 10;%{T5}10%{T-} ﱘ
+
+label-mode =  %mode%
+label-mode-padding = 20
+label-mode-background = ${colors.shade3}
+label-mode-foreground = ${colors.shade7}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-padding = 3
+label-focused-background = ${colors.shade2}
+label-focused-foreground = ${colors.shade0}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 3
+;label-unfocused-background = #00281534
+label-unfocused-foreground = ${colors.shade7}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-padding = 3
+;label-urgent-background = #00281534
+label-urgent-foreground = ${colors.shade7}
+
+label-visible = %icon%
+label-visible-padding = 3
+;label-visible-background = #00281534
+label-visible-foreground = ${colors.shade7}
+
+;label-separator = "  "
+
+
+                                             
+;  _ __  _____ __ _____ _ _ _ __  ___ _ _ _  _ 
+; | '_ \/ _ \ V  V / -_) '_| '  \/ -_) ' \ || |
+; | .__/\___/\_/\_/\___|_| |_|_|_\___|_||_\_,_|
+; |_|                                          
+
+[module/powermenu]
+type = custom/text
+content = 
+content-foreground = ${colors.shade7}
+click-left = ~/.config/rofi/scripts/powermenu.sh
+content-padding = 1
+
+
+# [module/drivelauncher]
+# type = custom/text
+# content = %{A1:sh -c "i3-msg '[ title="Spotify Premium" ]' scratchpad show
+# ":}阮 %{A}
+# content-foreground = ${colors.shade6}
+# content-padding = 5
+;       _      _       
+;    __| |__ _| |_ ___ 
+;   / _` / _` |  _/ -_)
+;   \__,_\__,_|\__\___|
+;                      
+
+[module/date]
+type = internal/date
+; Seconds to sleep between updates
+interval = 1.0
+
+date = %D
+time = %a %m/%e    %I : %M  %p
+time-alt = %I:%M %p %D
+
+
+format-prefix = %{T4}%{T-}
+format-prefix-foreground = ${colors.shade7}
+format-prefix-background = ${colors.shade6}
+
+format = <label>
+format-background = ${colors.shade7}
+
+label = %{A6:time-admin:}  %time%  %{A}
+label-foreground = ${colors.shade0}
+
+;    _          _   _                
+;   | |__  __ _| |_| |_ ___ _ _ _  _ 
+;   | '_ \/ _` |  _|  _/ -_) '_| || |
+;   |_.__/\__,_|\__|\__\___|_|  \_, |
+;                               |__/ 
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT1
+adapter = ADP1
+
+poll-interval = 5
+
+format-charging-background = ${colors.shade6}
+format-charging-foreground = ${colors.foreground}
+format-discharging-background = ${colors.shade6}
+format-discharging-foreground = ${colors.foreground}
+format-full-background = ${colors.shade6}
+format-full-foreground = ${colors.foreground}
+
+format-charging-prefix = %{T4}%{T-}
+format-charging-prefix-foreground = ${colors.shade6}
+format-charging-prefix-background = ${colors.shade5}
+format-discharging-prefix = %{T4}%{T-}
+format-discharging-prefix-foreground = ${colors.shade6}
+format-discharging-prefix-background = ${colors.shade5}
+format-full-prefix = %{T4}%{T-}
+format-full-prefix-foreground = ${colors.shade6}
+format-full-prefix-background = ${colors.shade5}
+
+format-charging = <label-charging>
+format-discharging = <ramp-capacity><label-discharging>
+
+label-charging = %{T3} %{T-}  %percentage%%
+label-discharging = %percentage%%
+label-full = %{T3} %{T-}  %percentage%%
+
+label-charging-padding = 1
+label-discharging-padding = 1
+label-full-padding = 1
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = %{T3} %{T-}
+ramp-capacity-1 = %{T3} %{T-}
+ramp-capacity-2 = %{T3} %{T-}
+ramp-capacity-3 = %{T3} %{T-}
+ramp-capacity-4 = %{T3} %{T-}
+ramp-capacity-5 = %{T3} %{T-}
+ramp-capacity-6 = %{T3} %{T-}
+ramp-capacity-7 = %{T3} %{T-}
+ramp-capacity-8 = %{T3} %{T-}
+ramp-capacity-9 = %{T3} %{T-}
+
+;           _           
+;   __ __ _| |__ _ _ _  
+;   \ V  V / / _` | ' \ 
+;    \_/\_/|_\__,_|_||_|
+;                       
+
+[module/wlan]
+type = internal/network
+interface = wlp62s0
+interval = 3.0
+
+format-connected-prefix = %{T4}%{T-}
+format-connected-prefix-foreground = ${colors.shade5}
+format-connected-prefix-background = ${colors.shade4}
+
+format-connected-foreground = ${colors.foreground}
+format-connected-background = ${colors.shade5}
+format-connected = %{A1:tilix -e wicd-curses:}  直<label-connected>%{A}
+
+
+label-connected =  %essid%
+;label-connected =  %signal%% %downspeed:8:8% %{F#83a7b4}%{F-} %upspeed:8:8% %{F#83a7b4}%{F-}
+
+
+format-disconnected-prefix = %{T4}%{T-}
+format-disconnected-prefix-foreground = ${colors.shade5}
+format-disconnected-prefix-background = ${colors.shade4}
+
+format-disconnected-foreground = ${colors.foreground}
+format-disconnected-background = ${colors.shade5}
+format-disconnected = %{A1:tilix -e wicd-curses:}  睊%{A}
+
+label-connected-padding = 1
+label-disconnected-padding = 1
+
+;              _         
+;    _ __ _  _| |___ ___ 
+;   | '_ \ || | (_-</ -_)
+;   | .__/\_,_|_/__/\___|
+;   |_|                  
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_00_1f.3.hdmi-stereo-extra1
+
+use-ui-max = false
+
+interval = 5
+
+format-volume-prefix = %{T4}%{T-}
+format-volume-prefix-foreground = ${colors.shade4}
+format-volume-prefix-background = ${colors.background}
+
+format-volume-foreground = ${colors.foreground}
+format-volume-background = ${colors.shade4}
+
+
+label-volume = %{A3:pavucontrol:}%percentage%%%{A}
+
+format-volume = <ramp-volume> <label-volume>
+
+
+format-muted-prefix = %{T4}%{T-}
+format-muted-prefix-foreground = ${colors.shade4}
+format-muted-prefix-background = ${colors.background}
+
+format-muted-foreground = ${colors.foreground}
+format-muted-background = ${colors.shade4}
+
+
+label-muted = %{A3:pavucontrol:}   婢%{A}
+
+format-muted = <label-muted>
+
+ramp-volume-0 = %{A3:pavucontrol:}   奄%{A}
+ramp-volume-1 = %{A3:pavucontrol:}   奔%{A}
+ramp-volume-2 =  %{A3:pavucontrol:}   墳%{A}
+
+label-volume-padding = 1
+label-muted-padding = 0
+;                _         _            
+;   __ ____ __ _(_)_ _  __| |_____ __ __
+;   \ \ /\ V  V / | ' \/ _` / _ \ V  V /
+;   /_\_\ \_/\_/|_|_||_\__,_\___/\_/\_/ 
+;                                       
+
+[module/xwindow]
+type = internal/xwindow
+
+label-font = 5
+label = %title:0:50: ...%
+label-padding = 2
+label-foreground = ${colors.shade1}
+label-background = ${colors.shade0}
+
+;        _            _                      _ 
+;   __ _| |_____ _  _| |__  ___  __ _ _ _ __| |
+;   \ \ / / / -_) || | '_ \/ _ \/ _` | '_/ _` |
+;   /_\_\_\_\___|\_, |_.__/\___/\__,_|_| \__,_|
+;                |__/                          
+
+[module/xkeyboard]
+type = internal/xkeyboard
+
+format-prefix = 
+format = <label-indicator>
+format-prefix-foreground = ${colors.foreground}
+format-prefix-underline =
+
+label-layout =
+label-layout-underline = 
+label-indicator-on-foreground = ${colors.foreground}
+label-indicator-on-background = #f7bd51
+
+label-indicator-on-padding = 2
+label-indicator-on-margin = 0
+label-indicator-background = #8844dd
+label-indicator-underline = #8844dd
+
+indicator-icon-default = 
+indicator-icon-0 = caps lock;;
+indicator-icon-1 = scroll lock;;S
+indicator-icon-2 = num lock;;
+
+
+label-indicator-on = %icon%
+label-indicator-off = 
+
+
+label-indicator-on-capslock = %{B#06afc7} %icon% %{B-}
+label-indicator-on-numlock = %{B#ffc878} %icon% %{B-}
+
+;                 
+;    __ _ __ _  _ 
+;   / _| '_ \ || |
+;   \__| .__/\_,_|
+;      |_|        
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+label-font = 2
+format-prefix = %{T3}﬙ %{T-}
+format-label = <label>
+label = CPU%percentage:3%%
+format-foreground = ${colors.shade7}
+
+ramp-coreload-spacing = 1
+ramp-coreload-0 = %{T4}▁%{T-}
+ramp-coreload-1 = %{T4}▂%{T-}
+ramp-coreload-2 = %{T4}▃%{T-}
+ramp-coreload-3 = %{T4}▄%{T-}
+ramp-coreload-4 = %{T4}▅%{T-}
+ramp-coreload-5 = %{T4}▆%{T-}
+ramp-coreload-6 = %{T4}▇%{T-}
+ramp-coreload-7 = %{T4}█%{T-}
+
+;    _                  
+;   | |_ ___ _ __  _ __ 
+;   |  _/ -_) '  \| '_ \
+;    \__\___|_|_|_| .__/
+;                 |_|   
+
+[module/temperature]
+type = internal/temperature
+thermal-zone =4
+warn-temperature = 60
+label-font = 2
+format = <label>
+format-warn = <label-warn>
+format-warn-underline =
+
+label = 﨏 %temperature-c%
+label-warn = 﨏 %temperature-c%
+label-warn-foreground = #df3b3d
+format-foreground = ${colors.shade7}
+;                   
+;    _ _ __ _ _ __  
+;   | '_/ _` | '  \ 
+;   |_| \__,_|_|_|_|
+;                   
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+label-font = 2
+format-prefix = %{T3} %{T-}
+format-label = <label>
+label = RAM%percentage_used:3%%
+format-foreground = ${colors.shade7}
+
+
+
+;                   
+;    __ _ _ __ _  _ 
+;   / _` | '_ \ || |
+;   \__, | .__/\_,_|
+;   |___/|_|        
+
+[module/gpu]
+
+type = custom/script
+exec = ~/myscripts/system-nvidia-smi.sh
+interval = 10
+
+label-font = 2
+format-prefix = %{T3}ﮕ %{T-}
+format-label = <label>
+label = GPU - Util %output%
+format-foreground = ${colors.shade7}
+
+;               _   _  __      
+;  ____ __  ___| |_(_)/ _|_  _ 
+; (_-< '_ \/ _ \  _| |  _| || |
+; /__/ .__/\___/\__|_|_|  \_, |
+;    |_|                  |__/ 
+
+[module/previous]
+type = custom/script
+interval = 86400
+format = <label>
+format-padding = 1
+; Previous song icon
+exec = echo "玲"
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
+format-foreground = ${colors.shade6}
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+
+[module/next]
+type = custom/script
+interval = 86400
+format = <label>
+format-padding = 1
+; Next song icon
+exec = echo "怜"
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
+format-foreground =${colors.shade6}
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+[module/playpause]
+type = custom/ipc
+; Default
+hook-0 = echo ""
+; Playing
+hook-1 = echo ""
+; Paused
+hook-2 = echo ""
+initial = 1
+format-padding = 1
+format-foreground = ${colors.shade6}
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+
+[module/spotify]
+type = custom/ipc
+hook-0 = echo ""
+hook-1 = python3 ~/myscripts/spotify/spotify_status.py
+initial = 1
+format-padding = 0
+format-foreground = ${colors.shade6}
+format-prefix = 
+format-prefix-padding = 1
+line-size = 1
+format-prefix-font = 3
+; [i3wm only] - Uncomment the below line to focus on Spotify when clicking on the song name (credits to https://github.com/Esya)
+click-left = i3-msg '[title="Spotify Premium"] foc'
+
+[module/filesystem]
+type = internal/fs
+
+label-mounted-font = 2
+
+; Mountpoints to display
+mount-0 = /
+mount-1 = /mnt/sdb1
+mount-2 = /mnt/sdb4
+; Seconds to sleep between updates
+; Default: 30
+interval = 10
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+; Spacing between entries
+; Default: 2
+spacing = 4
+
+format-mounted-foreground = ${colors.shade6}
+; Available tags:
+;   <label-mounted> (default)
+;   <bar-free>
+;   <bar-used>
+;   <ramp-capacity>
+format-mounted = <label-mounted>
+
+; Available tags:
+;   <label-unmounted> (default)
+format-unmounted = <label-unmounted>
+
+; Available tokens:
+;   %mountpoint%
+;   %type%
+;   %fsname%
+;   %percentage_free%
+;   %percentage_used%
+;   %total%
+;   %free%
+;   %used%
+; Default: %mountpoint% %percentage_free%%
+label-mounted =  %mountpoint% %percentage_used%%
+
+; Available tokens:
+;   %mountpoint%
+; Default: %mountpoint% is not mounted
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = #55
+
+
+[module/takeabreak]
+type = custom/ipc
+
+; Define the command to be executed when the hook is triggered
+; Available tokens:
+;   %pid% (id of the parent polybar process)
+hook-0 = cat ~/myscripts/takeabreak/sample
+hook-1 = echo "Time for a break!"
+hook-2 = echo "No timer running"
+
+; Hook to execute on launch. The index is 1-based and using
+; the example below (2) `whoami` would be executed on launch.
+; Default: 0
+initial = 3
+format-foreground = ${colors.shade6}
+format-font = 2
+format =  <output>
+
+click-left = ~/myscripts/takeabreak/starttakeabreak.sh
+click-right = ~/myscripts/takeabreak/stoptakeabreak.sh
+
+;  ___ ___ _____ _____ ___ _  _  ___ ___ 
+; / __| __|_   _|_   _|_ _| \| |/ __/ __|
+; \__ \ _|  | |   | |  | || .` | (_ \__ \
+; |___/___| |_|   |_| |___|_|\_|\___|___/
+                                        
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = true
+
+[global/wm]
+margin-top = 940
+margin-bottom = 940
+
+; vim:ft=dosini

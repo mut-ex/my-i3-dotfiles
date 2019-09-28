@@ -1,6 +1,6 @@
 # mydotfiles v1.1
 
-![my setup](https://github.com/turing753/mydotfiles/master/preview1234.png)
+![my setup](https://github.com/turing753/mydotfiles/blob/master/preview1234.png)
 
 ## Additional Stuff
 * [McMojave-circle] - The icon theme I am using

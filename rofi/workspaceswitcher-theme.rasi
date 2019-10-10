@@ -1,0 +1,37 @@
+configuration {
+    show-icons:true;
+}
+ 
+* {
+    background-color: #00000000;
+    text-color: #afc1dd;
+    font:"3270SemiNarrow Nerd Font 35";
+}
+ 
+#window {
+  children: [ horibox ];
+  padding: 16px 0 0px 72px;
+  width: 1570px;
+  height: 161px;
+  background-color: #47279eaa;
+  border-radius: 4px;
+}
+#horibox {
+  children: [ listview ];
+}
+#listview {
+  layout: horizontal;
+  spacing: 20px;
+  lines: 9;
+}
+
+#element {/*top right b  left   */
+  padding: 30px 40px 30px -45px;
+  background-color: #0c051f00;
+  border-radius: 8px;
+}
+#element.selected {
+  text-color: #120d1b;
+  background-color: #47d1beaa;
+}
+

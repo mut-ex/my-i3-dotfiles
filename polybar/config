@@ -1,0 +1,671 @@
+;==========================================================
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;			https://github.com/polybar/polybar
+;==========================================================
+
+[colors]
+background = ${xrdb:color0:#222}
+background-alt = ${xrdb:color7:#222}
+
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color0:#222}
+ 
+shade0 = ${xrdb:color0:#222}
+shade1 = ${xrdb:color1:#222}
+shade2 = ${xrdb:color2:#222}
+shade3 = ${xrdb:color3:#222}
+shade4 = ${xrdb:color4:#222}
+shade5 = ${xrdb:color5:#222}
+shade6 = ${xrdb:color6:#222}
+shade7 = ${xrdb:color7:#222}
+shade8 = ${xrdb:color8:#222}
+
+
+[bar/top]
+background = ${colors.background}
+border-bottom-size = 4
+border-color = #2f2f2f30
+border-transparent = true
+cursor-click = pointer
+cursor-scroll = ns-resize
+fixed-center = true
+foreground = ${colors.foreground}
+height = 40
+line-color = #f00
+line-size = 0
+module-margin-left = 0
+module-margin-right = 0
+monitor = DP-1-1
+monitor-fallback = eDP-1-1
+offset-x = 30
+offset-y = 30
+override-redirect = true
+padding-left = 0
+padding-right = 0
+radius-top = 4
+scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsnext
+tray-position = none
+width = 2500
+
+font-0 = Roboto Condensed:weight=regular:fontformat=truetype:size=16:antialias=true;4
+
+font-1 = Space Mono:fontformat=truetype:weight=regular:size=12:antialias=true;3
+
+font-2 = 3270SemiNarrow Nerd Font:fontformat=truetype:size=19:antialias=true;4.5
+
+font-3 = 3270SemiNarrow Nerd Font:fontformat=truetype:size=33:antialias=true;6.5
+
+font-4 = Space Mono:fontformat=truetype:weight=bold:size=13:antialias=true;4
+
+modules-left = xkeyboard xwindow
+modules-center =  i3
+modules-right =  pulseaudio wlan battery date
+
+[bar/top-ext]
+inherit = bar/top
+monitor = DP-1-1
+
+
+[bar/bottom]
+background = ${colors.foreground}
+border-bottom-size = 0
+border-top-size = 0
+bottom = true
+enable-ipc = true
+font-3 = 3270SemiNarrow Nerd Font:fontformat=truetype:size=30:antialias=true;6
+foreground = ${colors.background}
+height = 35
+inherit = bar/top
+module-margin-left = 0
+module-margin-right = 0
+monitor = DP-1-1
+monitor-fallback = eDP-1-1
+offset-x = 0
+offset-y = 0
+padding-left = 0
+padding-right = 0
+radius-top = 0
+width = 100%
+
+modules-left = takeabreak
+modules-center = cpu memory gpu temperature filesystem
+;modules-right =  spotify previous playpause next powermenu
+modules-right =  powermenu
+
+[bar/bottom-ext]
+inherit = bar/bottom
+monitor = DP-1-1      
+
+modules-left = takeabreak
+modules-center = cpu memory gpu temperature filesystem
+modules-right =  spotify previous playpause next powermenu
+enable-ipc = true
+
+                         
+
+
+;  _ ____             
+; (_)__ /_ __ ___ __  
+; | ||_ \ V  V / '  \ 
+; |_|___/\_/\_/|_|_|_|
+                     
+[module/i3]
+format = <label-state> <label-mode> 
+index-sort = true
+pin-workspaces = false
+type = internal/i3
+wrapping-scroll = false
+
+;strip-wsnumbers = true
+ws-icon-0 = 1;
+ws-icon-1 = 2;爵
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;ﱮ
+ws-icon-5 = 6;
+ws-icon-6 = 7;ﳜ
+ws-icon-7 = 8; 
+ws-icon-8 = 9;﫯
+ws-icon-9 = 10;
+
+label-focused = %icon%
+label-focused-background = ${colors.shade7}
+label-focused-foreground = ${colors.shade0}
+label-focused-padding = 3
+
+label-mode =  %mode%
+label-mode-background = ${colors.shade3}
+label-mode-foreground = ${colors.shade7}
+label-mode-padding = 20
+
+label-unfocused = %icon%
+label-unfocused-foreground = ${colors.shade7}
+label-unfocused-padding = 3
+
+label-urgent = %icon%
+label-urgent-background = ${colors.shade4}
+label-urgent-foreground = ${colors.shade7}
+label-urgent-padding = 3
+
+label-visible = %icon%
+label-visible-foreground = ${colors.shade7}
+label-visible-padding = 3
+
+
+
+
+;  _ __  _____ __ _____ _ _ _ __  ___ _ _ _  _ 
+; | '_ \/ _ \ V  V / -_) '_| '  \/ -_) ' \ || |
+; | .__/\___/\_/\_/\___|_| |_|_|_\___|_||_\_,_|
+; |_|                                          
+
+[module/powermenu]
+click-left = ~/.config/rofi/scripts/powermenu.sh
+content-prefix =  %{F#1c2023}%{T4} %{F-}%{T-}
+content =    %{T4} %{T-}  
+content-foreground = ${colors.foreground}
+content-background = ${colors.shade6}
+
+type = custom/text
+
+
+
+
+;     _      _       
+;  __| |__ _| |_ ___ 
+; / _` / _` |  _/ -_)
+; \__,_\__,_|\__\___|
+                    
+[module/date]
+date = %D
+
+format = <label>
+format-background = ${colors.shade4}
+format-prefix = %{T4}%{T-}
+format-prefix-background = ${colors.shade6}
+format-prefix-foreground = ${colors.shade4}
+
+interval = 1.0
+
+label = %{A6:time-admin:}  %time%  %{A}
+label-foreground = ${colors.shade7}
+
+time = %a %m/%e    %I : %M  %p
+time-alt = %I:%M %p %D
+
+type = internal/date
+
+
+
+
+;    _          _   _                
+;   | |__  __ _| |_| |_ ___ _ _ _  _ 
+;   | '_ \/ _` |  _|  _/ -_) '_| || |
+;   |_.__/\__,_|\__|\__\___|_|  \_, |
+;                               |__/ 
+
+[module/battery]
+adapter = ADP1
+battery = BAT1
+
+format-charging = <label-charging>
+
+format-charging-background = ${colors.shade6}
+format-charging-foreground = ${colors.foreground}
+format-charging-prefix = %{T4}%{T-}
+format-charging-prefix-background = ${colors.shade2}
+format-charging-prefix-foreground = ${colors.shade6}
+
+format-discharging = <ramp-capacity><label-discharging>
+format-discharging-background = ${colors.shade6}
+format-discharging-foreground = ${colors.foreground}
+format-discharging-prefix = %{T4}%{T-}
+format-discharging-prefix-background = ${colors.shade2}
+format-discharging-prefix-foreground = ${colors.shade6}
+
+format-full-background = ${colors.shade6}
+format-full-foreground = ${colors.foreground}
+format-full-prefix = %{T4}%{T-}
+format-full-prefix-background = ${colors.shade2}
+format-full-prefix-foreground = ${colors.shade6}
+
+full-at = 99
+
+label-charging = %{T3} %{T-}  %percentage%%
+label-charging-padding = 1
+
+label-discharging = %percentage%%
+label-discharging-padding = 1
+
+label-full = %{T3} %{T-}  %percentage%%
+label-full-padding = 1
+
+poll-interval = 5
+
+type = internal/battery
+
+ramp-capacity-0 = %{T3} %{T-}
+ramp-capacity-1 = %{T3} %{T-}
+ramp-capacity-2 = %{T3} %{T-}
+ramp-capacity-3 = %{T3} %{T-}
+ramp-capacity-4 = %{T3} %{T-}
+ramp-capacity-5 = %{T3} %{T-}
+ramp-capacity-6 = %{T3} %{T-}
+ramp-capacity-7 = %{T3} %{T-}
+ramp-capacity-8 = %{T3} %{T-}
+ramp-capacity-9 = %{T3} %{T-}
+
+
+
+
+;           _           
+;   __ __ _| |__ _ _ _  
+;   \ V  V / / _` | ' \ 
+;    \_/\_/|_\__,_|_||_|
+;                       
+
+[module/wlan]
+format-connected = %{A1:tilix -e wicd-curses:}  直<label-connected>%{A}
+format-connected-background = ${colors.shade2}
+format-connected-foreground = ${colors.foreground}
+format-connected-prefix = %{T4}%{T-}
+format-connected-prefix-background = ${colors.shade3}
+format-connected-prefix-foreground = ${colors.shade2}
+
+format-disconnected = %{A1:tilix -e wicd-curses:}  睊%{A}
+format-disconnected-background = ${colors.shade2}
+format-disconnected-foreground = ${colors.foreground}
+format-disconnected-prefix = %{T4}%{T-}
+format-disconnected-prefix-background = ${colors.shade3}
+format-disconnected-prefix-foreground = ${colors.shade2}
+
+interface = wlp62s0
+
+interval = 3.0
+
+label-connected =  %essid%
+label-connected-padding = 1
+label-disconnected-padding = 1
+
+type = internal/network
+
+
+
+
+;              _         
+;    _ __ _  _| |___ ___ 
+;   | '_ \ || | (_-</ -_)
+;   | .__/\_,_|_/__/\___|
+;   |_|                  
+
+[module/pulseaudio]
+format-muted = <label-muted>
+format-muted-background = ${colors.shade3}
+format-muted-foreground = ${colors.foreground}
+
+format-muted-prefix = %{T4}%{T-}
+format-muted-prefix-background = ${colors.background}
+format-muted-prefix-foreground = ${colors.shade3}
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-background = ${colors.shade3}
+format-volume-foreground = ${colors.foreground}
+format-volume-prefix = %{T4}%{T-}
+format-volume-prefix-background = ${colors.background}
+format-volume-prefix-foreground = ${colors.shade3}
+
+interval = 5
+
+label-muted = %{A3:pavucontrol:}   婢%{A}
+label-muted-padding = 0
+
+label-volume = %{A3:pavucontrol:}%percentage%%%{A}
+label-volume-padding = 1
+
+ramp-volume-0 = %{A3:pavucontrol:}   奄%{A}
+ramp-volume-1 = %{A3:pavucontrol:}   奔%{A}
+ramp-volume-2 =  %{A3:pavucontrol:}   墳%{A}
+
+sink = alsa_output.pci-0000_00_1f.3.hdmi-stereo-extra1
+
+type = internal/pulseaudio
+
+use-ui-max = false
+
+
+
+
+;                _         _            
+;   __ ____ __ _(_)_ _  __| |_____ __ __
+;   \ \ /\ V  V / | ' \/ _` / _ \ V  V /
+;   /_\_\ \_/\_/|_|_||_\__,_\___/\_/\_/ 
+;                                       
+
+[module/xwindow]
+label = %{T4} %{T-}  %title:0:50: ...%%{F#c795ae}%{B#f4f7ee}%{T4}%{F-}%{B-}%{T-}
+label-background = ${colors.shade5}
+label-font = 5
+label-foreground = ${colors.shade7}
+;label-padding = 2
+
+type = internal/xwindow
+
+
+
+
+;        _            _                      _ 
+;   __ _| |_____ _  _| |__  ___  __ _ _ _ __| |
+;   \ \ / / / -_) || | '_ \/ _ \/ _` | '_/ _` |
+;   /_\_\_\_\___|\_, |_.__/\___/\__,_|_| \__,_|
+;                |__/                          
+
+[module/xkeyboard]
+blacklist-0 = num lock
+format = <label-indicator>
+format-prefix = 
+format-prefix-foreground = ${colors.background}
+format-prefix-underline =
+format-background = ${colors.foreground}
+
+indicator-icon-0 = caps lock;;了
+indicator-icon-1 = scroll lock;;S
+indicator-icon-2 = num lock;;
+indicator-icon-default = 
+
+label-indicator-background = #8844dd
+
+label-indicator-off = 
+
+label-indicator-on = %icon%
+label-indicator-on-background = #f7bd51
+label-indicator-on-capslock = %{F#f3f4f5} %icon% %{F-}
+label-indicator-on-foreground = ${colors.background}
+label-indicator-on-margin = 0
+label-indicator-on-numlock = %{B#ffc878} %icon% %{B-}
+label-indicator-on-padding = 2
+
+label-indicator-underline = #8844dd
+
+label-layout =
+
+label-layout-underline = 
+
+type = internal/xkeyboard
+
+
+
+
+;                 
+;    __ _ __ _  _ 
+;   / _| '_ \ || |
+;   \__| .__/\_,_|
+;      |_|        
+
+[module/cpu]
+format-foreground = ${colors.shade0}
+format-label = <label>
+format-prefix = %{T3}﬙ %{T-}
+format-suffix = %{T3}  %{T-}
+
+interval = 2
+
+label = CPU%percentage:3%%
+label-font = 2
+
+ramp-coreload-0 = %{T4}▁%{T-}
+ramp-coreload-1 = %{T4}▂%{T-}
+ramp-coreload-2 = %{T4}▃%{T-}
+ramp-coreload-3 = %{T4}▄%{T-}
+ramp-coreload-4 = %{T4}▅%{T-}
+ramp-coreload-5 = %{T4}▆%{T-}
+ramp-coreload-6 = %{T4}▇%{T-}
+ramp-coreload-7 = %{T4}█%{T-}
+ramp-coreload-spacing = 1
+
+type = internal/cpu
+
+
+
+
+;    _                  
+;   | |_ ___ _ __  _ __ 
+;   |  _/ -_) '  \| '_ \
+;    \__\___|_|_|_| .__/
+;                 |_|   
+
+[module/temperature]
+format = <label>
+
+format-foreground = ${colors.shade0}
+format-warn = <label-warn>
+format-warn-underline =
+
+label = 﨏 %temperature-c%%{T3}  %{T-}
+label-font = 2
+label-warn-font = 2
+label-warn = 﨏 %temperature-c%%{T3}  %{T-}
+label-warn-foreground = #df3b3d
+
+thermal-zone = 4
+
+type = internal/temperature
+
+warn-temperature = 60
+
+
+
+
+;                   
+;    _ _ __ _ _ __  
+;   | '_/ _` | '  \ 
+;   |_| \__,_|_|_|_|
+;                   
+
+[module/memory]
+format-foreground = ${colors.shade0}
+format-label = <label>
+format-prefix = %{T3} %{T-}
+format-suffix = %{T3}  %{T-}
+
+interval = 2
+
+label = RAM%percentage_used:3%%
+label-font = 2
+
+type = internal/memory
+
+
+
+
+;                   
+;    __ _ _ __ _  _ 
+;   / _` | '_ \ || |
+;   \__, | .__/\_,_|
+;   |___/|_|        
+
+[module/gpu]
+exec = ~/myscripts/system-nvidia-smi.sh
+
+format-foreground = ${colors.shade0}
+format-label = <label>
+format-prefix = %{T3}ﮕ %{T-}
+format-suffix = %{T3}  %{T-}
+
+interval = 10
+
+label = GPU %output%
+label-font = 2
+
+type = custom/script
+
+
+
+
+;               _   _  __      
+;  ____ __  ___| |_(_)/ _|_  _ 
+; (_-< '_ \/ _ \  _| |  _| || |
+; /__/ .__/\___/\__|_|_|  \_, |
+;    |_|                  |__/ 
+
+[module/previous]
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+
+exec = echo "玲"
+exec-if = "pgrep spotify"
+
+format = <label>
+format-foreground = ${colors.shade7}
+format-background = ${colors.shade6}
+format-padding = 0
+format-prefix = %{F#00000000}%{T4} %{F-}%{T-}
+
+interval = 86400
+
+line-size = 1
+
+type = custom/script
+
+
+[module/next]
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+exec = echo "怜"
+exec-if = "pgrep spotify"
+
+format = <label>
+format-foreground = ${colors.shade7}
+format-background = ${colors.shade6}
+format-padding = 0
+format-suffix = %{F#00000000}%{T4} %{F-}%{T-}
+
+interval = 86400
+
+line-size = 1
+
+type = custom/script
+
+
+[module/playpause]
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+
+format-foreground = ${colors.shade7}
+format-background = ${colors.shade6}
+format-padding = 1
+
+hook-0 = echo "  "
+hook-1 = echo "  "
+hook-2 = echo "  "
+
+initial = 1
+
+line-size = 1
+
+type = custom/ipc
+
+
+[module/spotify]
+click-left = i3-msg '[title="Spotify Premium"] foc'
+
+format-foreground = ${colors.shade7}
+format-background = ${colors.shade6}
+format-padding = 0
+format-prefix = %{T4} %{T-}
+format-suffix = %{F#00000000}%{T4} %{F-}%{T-}
+format-prefix-font = 3
+
+hook-0 = echo "  "
+hook-1 = python3 ~/myscripts/spotify/spotify_status.py
+
+initial = 1
+line-size = 1
+
+type = custom/ipc
+
+
+
+
+;   __ _ _                
+;  / _(_) |___ ____  _ ___
+; |  _| | / -_|_-< || (_-<
+; |_| |_|_\___/__/\_, /__/
+;                 |__/    
+
+[module/filesystem]
+fixed-values = true
+
+format-mounted = <label-mounted>
+format-mounted-foreground = ${colors.shade5}
+
+format-unmounted = <label-unmounted>
+
+interval = 10
+
+label-mounted =  %mountpoint% %percentage_used%%
+label-mounted-font = 2
+
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = #55
+
+mount-0 = /
+mount-1 = /mnt/sdb1
+mount-2 = /mnt/sdb4
+
+spacing = 4
+
+type = internal/fs
+
+
+
+
+;  _        _            _                 _   
+; | |_ __ _| |_____ __ _| |__ _ _ ___ __ _| |__
+; |  _/ _` | / / -_) _` | '_ \ '_/ -_) _` | / /
+;  \__\__,_|_\_\___\__,_|_.__/_| \___\__,_|_\_\
+                                              
+[module/takeabreak]
+click-left = ~/myscripts/takeabreak/starttakeabreak.sh
+click-right = ~/myscripts/takeabreak/stoptakeabreak.sh
+
+format = %{T4} %{T-}   <output> %{B#1c2023}%{F#c7ae95}%{T4}%{B-}%{F-}%{T-}
+
+format-font = 0
+format-foreground = ${colors.foreground}
+format-background = ${colors.shade1}
+format-prefix = 
+
+hook-0 = cat ~/myscripts/takeabreak/sample
+hook-1 = echo " Time for a break! "
+hook-2 = echo " No timer running "
+
+initial = 3
+
+type = custom/ipc
+
+
+
+
+;          _   _   _              
+;  ___ ___| |_| |_(_)_ _  __ _ ___
+; (_-</ -_)  _|  _| | ' \/ _` (_-<
+; /__/\___|\__|\__|_|_||_\__, /__/
+;                        |___/    
+                                      
+[settings]
+;compositing-background = screen
+;compositing-background = xor
+;compositing-border = over
+;pseudo-transparency = true
+compositing-foreground = source
+screenchange-reload = true
+
+[global/wm]
+
+; vim:ft=dosini
+margin-bottom = 940
+margin-top = 940

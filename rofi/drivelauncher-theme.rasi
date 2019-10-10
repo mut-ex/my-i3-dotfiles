@@ -1,0 +1,83 @@
+configuration {
+    display-drun:                   "app";
+    display-window:                 "window";
+    show-icons:true;
+
+}
+ 
+* {
+    lines: 5;
+    columns: 1;
+    background-color: #0c051f;
+    border-color: #0c051f;
+    text-color: #f5c7ad;
+    font: "Source Sans Pro 10";
+    x-offset: -1130px;
+    y-offset: -535px;
+}
+ 
+#window {
+    border: 0;
+    border-radius: 0px;
+    padding: 0px;
+    width: 300px;
+    height: 300px;
+
+}
+ 
+#mainbox {
+    background-color: #0c051f;
+    children: [inputbar, listview];
+    spacing: 0px;
+    padding: 0 0 0 0;
+    border: 15px;
+    border-color: @base0D;
+}
+ 
+ 
+#listview {
+    background-color: #0c051f;
+    fixed-height: 0;
+    border: 0px;
+    spacing: 10px;
+    scrollbar: false;
+    padding: 20px 0px 0px;
+}
+ 
+#element {
+    background-color: #0c051f;
+    border: 0;
+    border-radius: 30px;
+    padding: 4 4 4 4 ;
+}
+ 
+#element selected {
+    background-color: #DE652E;
+    text-color: #0c051f;
+}
+ 
+ 
+#inputbar {
+    children:   [ ];
+    background-color: #0c051f00;
+}
+ 
+#case-indicator {
+    background-color: #0c051f;
+    spacing:    0;
+}
+#entry {
+    background-color: #0c051f;
+    spacing:    0;
+}
+#prompt {
+    background-color: #0c051f;
+    spacing:    0;
+}
+ 
+#textbox-prompt-colon {
+    background-color: #0c051f00;
+    expand:     false;
+    str:        " ⌁";
+    margin:     0px 0.3em 0em 0em ;
+}

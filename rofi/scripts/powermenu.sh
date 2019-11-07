@@ -29,10 +29,10 @@ case $chosen in
          systemctl reboot
         ;;
     $lock)
-        ~/myscripts/blurlock.sh
+        ~/bin/standalone/blurlock.sh
         ;;
     $suspend)
-        ~/myscripts/blurlock.sh && systemctl suspend
+        ~/bin/standalone/blurlock.sh && systemctl suspend
         ;;
     $log_out)
          #killall sublime_text

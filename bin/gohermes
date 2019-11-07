@@ -1,0 +1,8 @@
+#!/bin/bash
+
+whatsapp="/home/adil/cloned/whats-app-web-linux-x64/whats-app-web"
+messages="/home/adil/cloned/messages-web-linux-x64/messages-web"
+
+sh -c "$whatsapp &"
+sh -c "$messages &"
+

@@ -22,11 +22,11 @@ title_align center
 # Set inner/outer gaps
 gaps inner 10
 gaps outer 0
-gaps top 25
+gaps top 40
 gaps bottom 0
 
-for_window [class   = "^.*"] border pixel 1
-for_window [title   = "^.*"] border pixel 1
+for_window [class   = "^.*"] border pixel 0
+for_window [title   = "^.*"] border pixel 0
 
 border_radius 0
 smart_borders on

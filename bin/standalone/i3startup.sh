@@ -32,8 +32,9 @@ wal -R
 source ~/.cache/wal/colors.sh
 hsetroot -solid "$background"
 
-polybar top &
+polybar right &
+polybar middle &
 
-compton &
+compton -C &
 
 redshift&

@@ -9,61 +9,71 @@
 ;==========================================================
 
 [colors]
-background        = ${xrdb:background:#222}
+background        = #1d1d1d
 background-alt    = ${xrdb:foreground:#222}
 
 foreground        = ${xrdb:foreground:#222}
 foreground-alt    = ${xrdb:background:#222}
 
-shade0            = ${xrdb:color0:#222}
-shade1            = ${xrdb:color1:#222}
-shade2            = ${xrdb:color2:#222}
-shade3            = ${xrdb:color3:#222}
-shade4            = ${xrdb:color4:#222}
-shade5            = ${xrdb:color5:#222}
-shade6            = ${xrdb:color6:#222}
-shade7            = ${xrdb:color7:#222}
+shade0            = ${xrdb:color7:#222}
+shade1            = ${xrdb:color7:#222}
+shade2            = ${xrdb:color7:#222}
+shade3            = ${xrdb:color7:#222}
+shade4            = ${xrdb:color7:#222}
+shade5            = ${xrdb:color7:#222}
+shade6            = ${xrdb:color7:#222}
+shade7            = #ffffff
 shade8            = ${xrdb:color8:#222}
 
 [constants]
 padding = 1
 
-
-[bar/top]
-background            = ${colors.background}
-border-size           = 0
+[bar/right]
+background-0          = #e0654d
+background-1          = #bc5c6e
 border-color          = ${colors.foreground}
+border-size           = 0
 border-transparent    = true
 bottom                = false
 cursor-click          = pointer
 cursor-scroll         = ns-resize
 fixed-center          = true
 foreground            = ${colors.foreground}
-height                = 32
+height                = 42
 line-color            = #f00
 line-size             = 0
 module-margin-left    = 0
 module-margin-right   = 0
 monitor               = DP-1-1
 monitor-fallback      = eDP-1-1
-offset-x              = 0
-offset-y              = 8
+offset-x              = 90%:-16
+offset-y              = 16
 override-redirect     = true
-padding-left          = 1
-padding-right         = 1
-radius                = 4
+padding-left          = 0
+padding-right         = 0
+radius                = 21
 scroll-down           = i3wm-wsprev
 scroll-up             = i3wm-wsnext
 tray-position         = none
-width                 = 100%
+width                 = 10%
 
-modules-left          = temperature memory cpu gpu
+modules-center         = pulseaudio wlan battery  
+modules-right = date
+
+font-0 = mononoki Nerd Font:weight=bold:fontformat=truetype:size=19:antialias=true;4
+font-1 = Roboto Condensed:fontformat=truetype:size=16:antialias=true;4
+
+[bar/middle]
+inherit = bar/right
+
+offset-x              = 40%
+offset-y              = 16
+width                 = 20%
+background-0    = #1d1d1d
+background-1    = #1d1d1d
+modules-left        = 
 modules-center        = i3
-modules-right         = pulseaudio wlan battery date
-
-font-0 = mononoki Nerd Font:weight=regular:fontformat=truetype:size=16:antialias=true;1
-font-1 = mononoki Nerd Font:weight=bold:fontformat=truetype:size=12:antialias=true;1
-
+modules-right        = 
 ;    _          _   _                
 ;   | |__  __ _| |_| |_ ___ _ _ _  _ 
 ;   | '_ \/ _` |  _|  _/ -_) '_| || |
@@ -75,41 +85,40 @@ adapter                                 = ADP1
 battery                                 = BAT1
 
 format-charging                         = <label-charging>
-format-charging-background              = ${colors.background}
-format-charging-foreground              = ${colors.shade2}
+format-charging-foreground              = #1d1d1d
 
 format-discharging                      = <ramp-capacity><label-discharging>
-format-discharging-background           = ${colors.background}
-format-discharging-foreground           = ${colors.shade1}
+format-discharging-foreground           = #1d1d1d
 
-format-full-background                  = ${colors.background}
-format-full-foreground                  = ${colors.shade2}
+format-full-foreground                  = #1d1d1d
+
+
 
 full-at                                 = 99
 
-label-charging                          = %{T3}%{T-}
+label-charging                          = 
 format-charging-padding                 = ${constants.padding}
 
 label-discharging                       = 
 format-discharging-padding              = ${constants.padding}
 
-label-full                              = %{T3}%{T-}
+label-full                              = 
 format-full-padding                     = ${constants.padding}
 
 poll-interval                           = 5
 
 type                                    = internal/battery
 
-ramp-capacity-0                         = %{T3}%{T-}
-ramp-capacity-1                         = %{T3}%{T-}
-ramp-capacity-2                         = %{T3}%{T-}
-ramp-capacity-3                         = %{T3}%{T-}
-ramp-capacity-4                         = %{T3}%{T-}
-ramp-capacity-5                         = %{T3}%{T-}
-ramp-capacity-6                         = %{T3}%{T-}
-ramp-capacity-7                         = %{T3}%{T-}
-ramp-capacity-8                         = %{T3}%{T-}
-ramp-capacity-9                         = %{T3}%{T-}
+ramp-capacity-0                         = 
+ramp-capacity-1                         = 
+ramp-capacity-2                         = 
+ramp-capacity-3                         = 
+ramp-capacity-4                         = 
+ramp-capacity-5                         = 
+ramp-capacity-6                         = 
+ramp-capacity-7                         = 
+ramp-capacity-8                         = 
+ramp-capacity-9                         = 
 
 ;                 
 ;    __ _ __ _  _ 
@@ -125,17 +134,17 @@ format-padding          = ${constants.padding}
 
 interval                = 2
 
-label                   = cpu %percentage%%
+label                   = cpu %percentage%% 
 label-font              = 2
 
-ramp-coreload-0         = %{T4}▁%{T-}
-ramp-coreload-1         = %{T4}▂%{T-}
-ramp-coreload-2         = %{T4}▃%{T-}
-ramp-coreload-3         = %{T4}▄%{T-}
-ramp-coreload-4         = %{T4}▅%{T-}
-ramp-coreload-5         = %{T4}▆%{T-}
-ramp-coreload-6         = %{T4}▇%{T-}
-ramp-coreload-7         = %{T4}█%{T-}
+ramp-coreload-0         = ▁
+ramp-coreload-1         = ▂
+ramp-coreload-2         = ▃
+ramp-coreload-3         = ▄
+ramp-coreload-4         = ▅
+ramp-coreload-5         = ▆
+ramp-coreload-6         = ▇
+ramp-coreload-7         = █
 ramp-coreload-spacing   = 1
 
 type                    = internal/cpu
@@ -149,15 +158,16 @@ type                    = internal/cpu
 date                        = %D
 
 format                      = <label>
-format-background           = ${colors.background}
+
 format-font = 2
 interval                    = 1.0
 
-label                       = %{A6:time-admin:} %time%%{A}
-label-foreground            = ${colors.foreground}
+label                       = %{A6:time-admin:}  %time%   %{A}
+format-background            = #1d1d1d
+format-foreground = #ffffff
 
 ;time                        = %a %m/%e    %I : %M  %p
-time                        = %I:%M %p
+time                        = %I:%M%P
 time-alt                    = %A, %B %e  %I:%M:%S %p
 
 type                        = internal/date
@@ -206,7 +216,7 @@ format-label        = <label>
 format-padding      = ${constants.padding}
 interval            = 10
 
-label               = gpu %output%
+label               = gpu %output% 
 label-font          = 2
 
 type                = custom/script
@@ -234,9 +244,9 @@ wrapping-scroll             = false
 ;8messaging
 ;9
 ;0
-ws-icon-0                   = 1;
-ws-icon-1                   = 2;
-ws-icon-2                   = 3;
+ws-icon-0                   = 1;爵
+ws-icon-1                   = 2;
+ws-icon-2                   = 3;
 ws-icon-3                   = 4;
 ws-icon-4                   = 5;
 ws-icon-5                   = 6;
@@ -252,27 +262,27 @@ label-mode-font = 2
 
 label-mode                  = 煉 %mode%
 label-mode-background       = ${colors.shade4}
-label-mode-foreground       = ${colors.background}
+label-mode-foreground       = #ffffff
 label-mode-padding          = 1
 
 label-focused               = %icon%
 label-focused-background    = ${colors.background}
-label-focused-foreground    = ${colors.shade3}
-label-focused-padding       = 2
+label-focused-foreground    = #ffffff
+label-focused-padding       = 1
 
 label-unfocused             = %icon%
 label-unfocused-background  = ${colors.background}
-label-unfocused-foreground  = ${colors.shade7}
-label-unfocused-padding     = 2
+label-unfocused-foreground  = #f96f45
+label-unfocused-padding     = 1
 
 label-urgent                = %icon%
 label-urgent-background     = ${colors.background}
-label-urgent-foreground     = ${colors.shade5}
-label-urgent-padding        = 2
+label-urgent-foreground     = #e65245
+label-urgent-padding        = 1
 
 label-visible               = %icon%
-label-visible-foreground    = ${colors.shade7}
-label-visible-padding       = 2
+label-visible-foreground    = ${colors.shade2}
+label-visible-padding       = 1
 
 ;              _         
 ;    _ __ _  _| |___ ___ 
@@ -282,12 +292,14 @@ label-visible-padding       = 2
 
 [module/pulseaudio]
 format-muted                      = <label-muted>
-format-muted-background           = ${colors.background}
-format-muted-foreground           = ${colors.shade6}
+format-muted-foreground           = #1d1d1d
+format-muted-background-0    = #6C6AF2
+format-muted-background-1    = #4648FB
 
 format-volume                     = <ramp-volume>
-format-volume-background          = ${colors.background}
-format-volume-foreground          = ${colors.shade6}
+format-volume-foreground          = #1d1d1d
+format-volume-background-0    = #6C6AF2
+format-volume-background-1    = #4648FB
 
 interval                          = 5
 
@@ -319,7 +331,7 @@ format-padding      = ${constants.padding}
 
 interval            = 2
 
-label               = ram %percentage_used%%
+label               = ram %percentage_used%% 
 label-font          = 2
 
 type                = internal/memory
@@ -381,12 +393,14 @@ warn-temperature        = 60
 
 [module/wlan]
 format-connected                      = %{A1:tilix -e wicd-curses:}直<label-connected>%{A}
-format-connected-background           = ${colors.background}
-format-connected-foreground           = ${colors.shade5}
+format-connected-foreground           = #1d1d1d
+format-connected-background-0    = #6C6AF2
+format-connected-background-1    = #4648FB
 
 format-disconnected                   = %{A1:tilix -e wicd-curses:}睊%{A}
-format-disconnected-background        = ${colors.background}
-format-disconnected-foreground        = ${colors.shade1}
+format-disconnected-foreground        = #1d1d1d
+format-disconnected-background-0    = #6C6AF2
+format-disconnected-background-1    = #4648FB
 
 interface                             = wlp62s0
 
@@ -395,6 +409,7 @@ interval                              = 3.0
 label-connected                       = 
 format-connected-padding              = ${constants.padding}
 format-disconnected-padding           = ${constants.padding}
+
 
 type                                  = internal/network
 

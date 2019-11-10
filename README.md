@@ -1,18 +1,19 @@
-# mydotfiles v1.3
+# mydotfiles v1.4
 
 ![my setup](https://github.com/turing753/mydotfiles/blob/master/preview1234.png)
 
 ## Additional Stuff
-* [i3-gaps-rounded-corners] - The fork of window manager I am using
-* [compton-kawase-blur] - The fork of compositor I am using
+* [McMojave-circle] - The icon theme I am using
+* [i3-gaps-rounded-corners] - The fork of i3wm I am using
+* [sdhand/compton] - The fork of Compton I am using
 * [rofi] - The launcher I am using
 * [polybar] - The status bar I am using
-* The font I am using is called mononoki. Got it from Nerd Fonts.
-* i3, polybar, rofi, and Firefox userChrome get their colors from pywal's cache
+* [Layan-dark] - The gtk theme is based on Layan dark, I just changed the colors and a couple other things.
 
+   [McMojave-circle]: <https://www.gnome-look.org/p/1305429/>
    [i3-gaps-rounded-corners]: <https://github.com/resloved/i3>
-   [compton-kawase-blur]: <https://github.com/GabrielTenma/compton-kawase-blur>
+   [compton-kawase-blur]: <https://github.com/sdhand/compton>
    [rofi]: <https://github.com/davatorium/rofi>
    [polybar]: <https://polybar.github.io/>
-   
+   [Layan-dark]: <https://github.com/vinceliuice/Layan-gtk-theme>
 
